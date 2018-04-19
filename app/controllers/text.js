@@ -4,12 +4,20 @@
 * @param  {Function} next - pass to next error handler
 */
 
+const Text = require('../models/text')
+
 const getAll = async (req, res) => {
-    res.json({
-        text: "Hello World!!"
-    })
+    let data = await Text.getAll()
+    res.json(data)
+}
+
+const get = async (req, res) => {
+    let id = req.params.id
+    let data = await Text.get(id)
+    res.json(data)
 }
 
 module.exports = {
-    getAll
+    getAll,
+    get
 }
