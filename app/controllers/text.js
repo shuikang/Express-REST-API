@@ -1,6 +1,6 @@
 /**
 * @param  {Express.Request}   req  - the request object
-* @param  {Ecpress.Response}   res  - the response object
+* @param  {Express.Response}   res  - the response object
 * @param  {Function} next - pass to next error handler
 */
 
@@ -17,7 +17,16 @@ const get = async (req, res) => {
     res.json(data)
 }
 
+const create = async (req, res) => {
+    let body = req.body
+    let result = await Text.create(body)
+    res.json({
+        id: result[0]
+    })
+}
+
 module.exports = {
     getAll,
-    get
+    get,
+    create
 }
