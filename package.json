@@ -6,7 +6,10 @@
   "main": "index.js",
   "license": "ISC",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js",
+    "rollback": "knex --knexfile database/knexfile.js migrate:rollback",
+    "migrate": "knex --knexfile database/knexfile.js migrate:latest",
+    "seed": "knex --knexfile database/knexfile.js seed:run"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
