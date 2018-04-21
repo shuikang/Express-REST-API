@@ -52,9 +52,24 @@ const update = async (id, data) => {
     })
 }
 
+const del = async (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let result = await knex('texts')
+                .where('id', id)
+                .del()
+            resolve(result)
+        }
+        catch (error) {
+            reject(error)    
+        }
+    })
+}
+
 module.exports = {
     getAll,
     get,
     create,
-    update
+    update,
+    del
 }

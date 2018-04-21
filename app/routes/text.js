@@ -8,5 +8,6 @@ router.get('/', textController.getAll)
 router.get('/:id', textController.get)
 router.post('/', textController.create)
 router.put('/:id', textController.update)
+router.delete('/:id', textController.del)
 
 module.exports = router
