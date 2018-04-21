@@ -25,8 +25,18 @@ const create = async (req, res) => {
     })
 }
 
+const update = async (req, res) => {
+    let id = req.params.id
+    let body = req.body
+    let result = await Text.update(id, body)
+    res.json({
+        id: result
+    })
+}
+
 module.exports = {
     getAll,
     get,
-    create
+    create,
+    update
 }

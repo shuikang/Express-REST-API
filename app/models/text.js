@@ -38,8 +38,23 @@ const create = async (data) => {
     })
 }
 
+const update = async (id, data) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let result = await knex('texts')
+                .where('id', id)
+                .update(data)
+            resolve(result)
+        }
+        catch (error) {
+            reject(error)    
+        }
+    })
+}
+
 module.exports = {
     getAll,
     get,
-    create
+    create,
+    update
 }
