@@ -9,6 +9,7 @@
     "start": "node --inspect=5858 -r ts-node/register index.ts",
     "dev": "nodemon",
     "build": "tsc",
+    "lint": "eslint --fix **/*.{js,ts}",
     "rollback": "knex --knexfile database/knexfile.js migrate:rollback",
     "migrate": "knex --knexfile database/knexfile.js migrate:latest",
     "seed": "knex --knexfile database/knexfile.js seed:run"
