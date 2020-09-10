@@ -1,12 +1,14 @@
 {
   "name": "express-rest-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Template for express Restful API",
-  "author": "Puripat Arayasirikul <boat46450@hotmail.com>",
-  "main": "index.js",
+  "author": "Puripat Arayasirikul <boat46450@gmail.com>",
+  "main": "index.ts",
   "license": "ISC",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node --inspect=5858 -r ts-node/register index.ts",
+    "dev": "nodemon",
+    "build": "tsc",
     "rollback": "knex --knexfile database/knexfile.js migrate:rollback",
     "migrate": "knex --knexfile database/knexfile.js migrate:latest",
     "seed": "knex --knexfile database/knexfile.js seed:run"
