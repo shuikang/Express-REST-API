@@ -10,9 +10,11 @@
     "dev": "nodemon",
     "build": "tsc",
     "lint": "eslint --fix **/*.{js,ts}",
-    "rollback": "knex --knexfile database/knexfile.js migrate:rollback",
-    "migrate": "knex --knexfile database/knexfile.js migrate:latest",
-    "seed": "knex --knexfile database/knexfile.js seed:run"
+    "migrate": "knex migrate:latest --knexfile database/knexfile.ts",
+    "migrate:make": "knex migrate:make --knexfile database/knexfile.ts -x ts",
+    "rollback": "knex migrate:rollback --knexfile database/knexfile.ts",
+    "seed": "knex seed:run --knexfile database/knexfile.ts",
+    "seed:make": "knex seed:make --knexfile database/knexfile.ts -x ts"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
